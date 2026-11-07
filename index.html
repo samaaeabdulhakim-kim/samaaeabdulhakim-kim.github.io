@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdulhakeem Sama-ae – IT Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Thai:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#070b14;--panel:#0d1524;--line:#1c2b46;--text:#d6e1f5;--mute:#7e92b4;--cy:#4cd8ff;--am:#ffb454;
+--sans:"Sora","Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+background-size:48px 48px;background-position:-1px -1px}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 20% 0%,transparent 0,var(--bg) 70%);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:0 20px}
+a{color:var(--cy);text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:rgba(76,216,255,.4);transition:color .2s,text-decoration-color .2s}
+a:hover{color:#fff;text-decoration-color:var(--cy)}
+::selection{background:var(--cy);color:var(--bg)}
+a:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:2px}
+.hero{padding:64px 0 40px}
+h1{font-size:clamp(2.1rem,7.2vw,3.7rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 16px;font-weight:700;text-wrap:balance}
+.lead{color:var(--mute);max-width:54ch;margin:0 0 28px;font-size:1.05rem}
+.id{display:flex;align-items:center;gap:24px;margin-bottom:28px}.id .lead{margin-bottom:0}.pic{width:132px;height:132px;flex:none;border-radius:14px;object-fit:cover;object-position:50% 20%;border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
+.pic:hover{border-color:var(--cy);box-shadow:0 0 0 4px rgba(76,216,255,.12)}
+@media (max-width:560px){.id{flex-direction:column;align-items:flex-start;gap:18px}}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font:400 13.5px/1.7 var(--mono)}
+.term .cmd{color:var(--mute);margin-bottom:10px;overflow-wrap:anywhere}
+.term .cmd b{color:var(--cy);font-weight:500}
+.hop{display:grid;grid-template-columns:2ch 1fr;gap:0 14px;padding:6px 8px;margin:0 -8px;border-top:1px dashed var(--line);border-radius:4px;transition:background .2s}
+.hop:hover{background:rgba(76,216,255,.07)}
+.hop .n{color:var(--am)}
+.hop .w{color:var(--text);font-weight:500}
+.hop .w span{color:var(--mute);font-weight:400;display:block}
+.hop .t{grid-column:2;color:var(--cy)}
+.done{border-top:1px dashed var(--line);padding-top:8px;color:var(--mute)}
+.done b{color:var(--am);font-weight:500}
+.cursor{display:inline-block;width:.6ch;height:1.1em;background:var(--cy);vertical-align:-.15em;margin-left:4px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.bar{display:flex;justify-content:flex-end;padding-top:16px}
+.lang{font:500 12.5px/1 var(--mono);color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 15px;cursor:pointer;transition:border-color .2s,color .2s}
+.lang:hover{border-color:var(--cy);color:var(--cy)}
+.lang:focus-visible,summary:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+.prompt{display:flex;align-items:center;gap:10px;border-top:1px dashed var(--line);padding-top:8px;margin-top:6px}
+.prompt:focus-within{border-top-color:var(--cy)}
+.prompt b{color:var(--cy);font-weight:500}
+.cmd-in{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;padding:2px 0;caret-color:var(--cy)}
+.cmd-in::placeholder{color:var(--mute)}
+#out div{white-space:pre-wrap;color:var(--mute);overflow-wrap:anywhere;margin:4px 0}
+#out .q{color:var(--text)}
+.eval{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:18px}
+.eval .tag{font:400 12.5px/1.5 var(--mono);color:var(--mute);margin:0 0 8px}
+.eval .lbl{font:500 12.5px/1.5 var(--mono);color:var(--cy);margin:14px 0 4px}
+.eval blockquote{margin:0;padding-left:14px;border-left:2px solid var(--line)}
+.bad{background:rgba(255,180,84,.18);border-radius:3px;padding:0 3px}
+summary{cursor:pointer;font-weight:600;margin-top:18px;color:var(--cy);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";font-family:var(--mono)}
+details[open] summary::before{content:"\2013 "}
+.review{margin-top:12px}
+.js .term [data-t]{opacity:0;transform:translateY(4px)}
+.js .term [data-t].on{opacity:1;transform:none;transition:opacity .25s,transform .25s}
+section{padding:48px 0 8px}
+h2{font-size:1.15rem;font-weight:600;margin:0 0 24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+p{margin:0 0 16px;max-width:68ch;text-wrap:pretty}
+.role{position:relative;padding:0 0 32px 26px;border-left:1px solid var(--line);margin-left:5px}
+.role:last-child{border-left-color:transparent;padding-bottom:6px}
+.role::before{content:"";position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--cy);transition:background .4s,border-color .4s,box-shadow .4s}
+.js .role:not(.hit):not(.now)::before{border-color:var(--mute)}
+.role.now::before,.role.hit::before{background:var(--cy);border-color:var(--cy);box-shadow:0 0 0 4px rgba(76,216,255,.16)}
+h3{font-size:1.02rem;margin:0;font-weight:600}
+.meta{font:400 12.5px/1.5 var(--mono);font-variant-numeric:tabular-nums;color:var(--mute);margin:4px 0 12px}
+ul{margin:0;padding-left:18px;max-width:70ch}
+li{margin:0 0 8px}
+li::marker{color:var(--cy)}
+.proj{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:16px 18px;margin:0 0 16px;transition:border-color .2s,transform .2s}
+.proj:hover{border-color:#34507d;transform:translateY(-2px)}
+.proj h3{margin-bottom:2px}
+.proj p{margin:0;color:var(--mute);font-size:.95rem}
+.proj .meta{margin:0 0 4px;color:var(--cy)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:12px 24px;margin:0}
+dt{font:500 13px/1.7 var(--mono);color:var(--cy)}
+dd{margin:0}
+.langs{display:flex;flex-wrap:wrap;gap:8px 28px;margin:0;padding:0;list-style:none}
+.langs li{margin:0}
+.langs span{color:var(--mute);font-size:.9rem}
+.contact{padding-bottom:64px}
+.mail{display:inline-block;font:500 clamp(1rem,4.4vw,1.35rem)/1.3 var(--mono);overflow-wrap:anywhere}
+.avail{font:400 13px/1.6 var(--mono);color:var(--mute);margin-top:12px}
+@media (max-width:560px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:12px}.hero{padding-top:36px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.cursor{animation:none}.proj:hover{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="bar"><button class="lang" id="lang" type="button" aria-label="Switch language">ไทย</button></div>
+<header class="hero">
+<div class="id"><img class="pic" src="data:image/jpeg;base64,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" alt="Portrait of Abdulhakeem Sama-ae" width="132" height="132">
+<div>
+<h1>Abdulhakeem Sama-ae</h1>
+<p class="lead">IT engineer for networks and data centers, based in Bangkok. Open to remote work in AI evaluation and Thai language evaluation.</p>
+</div></div>
+<div class="term" aria-label="Career path as a traceroute">
+<div class="cmd" data-t><b>$</b> traceroute --career abdulhakeem.sama-ae</div>
+<div class="hop" data-t><span class="n">1</span><span class="w">BIT Solution<span>ICT Project Engineer, on-site project manager</span></span><span class="t">Oct 2023 – Apr 2026</span></div>
+<div class="hop" data-t><span class="n">2</span><span class="w">APEX Leap Thailand<span>Senior IT Support, Thailand office</span></span><span class="t">Jun 2026 – Oct 2026</span></div>
+<div class="hop" data-t><span class="n">3</span><span class="w">EZSVS Thailand<span>IDC Operation &amp; Maintenance Engineer</span></span><span class="t">Oct 2026 – now</span></div>
+<div class="done" data-t><b>destination reached.</b> 200 km of data centers in range.</div>
+<div class="prompt" data-t><b>$</b><input id="cmd" class="cmd-in" type="text" placeholder="type help" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command"></div>
+<div id="out" aria-live="polite"></div>
+</div>
+</header>
+
+<section id="about">
+<h2>About</h2>
+<p>I trained as a telecommunication engineer at Prince of Songkla University. Since then I’ve delivered building networks as an on-site project manager, and now keep data centers running across a 200 km area.</p>
+<p>I check things carefully and write them down clearly. I use AI tools daily for drafting, summarizing and planning, and I verify every output before it goes anywhere. I’m looking for remote and freelance work in AI evaluation, search quality, data annotation and Thai language evaluation.</p>
+</section>
+
+<section id="sample">
+<h2>Evaluation sample</h2>
+<div class="eval">
+<p class="tag">Illustrative exercise, not from a client project.</p>
+<div class="lbl">Prompt</div>
+<blockquote lang="th">ทำไมกรุงเทพฯ ถึงน้ำท่วมบ่อยในฤดูฝน</blockquote>
+<div class="lbl">Model response</div>
+<blockquote lang="th">กรุงเทพฯ ตั้งอยู่สูงจากระดับน้ำทะเลประมาณ <span class="bad">50 เมตร</span> แต่ฝนตกหนักและท่อระบายน้ำเก่า น้ำจึงท่วมขังบ่อยครั้ง</blockquote>
+<details><summary>Show my review</summary>
+<ul class="review">
+<li><b>Accuracy: fail.</b> Bangkok sits only about 1.5 m above sea level, not 50 m.</li>
+<li><b>Completeness: partial.</b> Misses land subsidence, tides, and river runoff.</li>
+<li><b>Fluency: good.</b> Natural, clear Thai.</li>
+<li><b>Verdict: revise.</b> Fix the elevation claim and add the missing causes.</li>
+</ul>
+</details>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="role now">
+<h3>IDC Operation &amp; Maintenance Engineer, EZSVS Thailand</h3>
+<div class="meta">October 2026 – present</div>
+<ul>
+<li>Operate and maintain data centers within a 200 km coverage radius.</li>
+<li>Run operational checks, technical verification and troubleshooting.</li>
+<li>Keep accurate technical records and coordinate with teams on issue resolution.</li>
+</ul>
+</div>
+<div class="role">
+<h3>Senior IT Support, Thailand Office, APEX Leap Thailand</h3>
+<div class="meta">June 2026 – October 2026</div>
+<ul>
+<li>First on-site IT staff member. Built IT operations from scratch for 25 Mac users across 5 sites, working with the overseas IT lead.</li>
+<li>Wrote a 12-point security SOP and a device reformat schedule with a standard image.</li>
+<li>Set up an SMB file server with per-user and department permissions, and an IT ticketing system with SLA tiers.</li>
+<li>Launched a bilingual (EN/ZH) Telegram IT support bot.</li>
+<li>Traced a shared-building network fault with the building’s network engineer and delivered a working fix.</li>
+</ul>
+</div>
+<div class="role">
+<h3>ICT Project Engineer (On-site Project Manager), BIT Solution</h3>
+<div class="meta">October 2023 – April 2026</div>
+<ul>
+<li>Single point of contact for building owners, main contractors and MEP teams, from planning to handover.</li>
+<li>Reviewed drawings and specs, produced shop drawings and submittals, and ran wiring inspections and sign-off.</li>
+<li>Managed BOQ-based billing and budget tracking, and supervised subcontractors on LAN, fiber, GPON, CCTV, access control and telephony.</li>
+</ul>
+</div>
+<div class="role">
+<h3>Service Monitoring Deck / IT Helpdesk, Toyota Tsusho Systems Thailand</h3>
+<div class="meta">June 2023 – September 2023</div>
+<ul>
+<li>Monitored IT infrastructure alerts and system performance 24/7 to keep services reliable.</li>
+<li>Identified, troubleshot and resolved incidents with the Singapore and Japan teams.</li>
+<li>Wrote SOPs and process documentation, and coordinated cross-regional incident follow-ups.</li>
+</ul>
+</div>
+<div class="role">
+<h3>Network Engineer Intern, Uniaire Corporation</h3>
+<div class="meta">May 2022 – July 2022</div>
+<ul>
+<li>Supported network solution design for industrial clients and joined site surveys and infrastructure assessments.</li>
+<li>Assisted with hardware configuration and implementation, and prepared user documentation.</li>
+</ul>
+</div>
+</section>
+
+<section id="projects">
+<h2>Selected projects</h2>
+<div class="proj"><h3>UOB Sathorn</h3><div class="meta">GPON network, three buildings, 30M+ THB</div><p>Lead engineer on the building service network.</p></div>
+<div class="proj"><h3>voco Bangkok Surawong</h3><div class="meta">ICT and security, 240+ guest rooms, 18M+ THB</div><p>Lead engineer on communications and security systems.</p></div>
+</section>
+
+<section id="academic">
+<h2>Academic projects</h2>
+<div class="proj"><h3>Antenna radiation and wireless module performance</h3><div class="meta">2022 – 2023</div><p>Simulated and tested wireless communication modules, evaluated signal strength and radiation patterns, and wrote optimization recommendations.</p></div>
+<div class="proj"><h3>Radiation and SAR from WBANs on the human body</h3><div class="meta">2021 – 2022</div><p>Studied SAR in Wireless Body Area Networks and simulated exposure with an ESP32 WROOM32, comparing device placement effects.</p></div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<dl>
+<dt>Networking</dt><dd>LAN, WAN, WLAN, VLAN, GPON, fiber optics</dd>
+<dt>Vendors</dt><dd>Cisco, Aruba, Ruckus, Huawei, Fortinet</dd>
+<dt>Systems</dt><dd>CCTV, access control, telephony</dd>
+<dt>Tools</dt><dd>Wireshark, Google Workspace and Apps Script, macOS, Windows and Linux (basic), Microsoft Office</dd>
+<dt>Practice</dt><dd>Network documentation, SOP writing, troubleshooting, vendor and stakeholder coordination</dd>
+</dl>
+</section>
+
+<section id="languages">
+<h2>Languages and education</h2>
+<ul class="langs">
+<li>Thai <span>native</span></li>
+<li>English <span>working proficiency, TOEIC 740/990</span></li>
+<li>Arabic <span>proficient</span></li>
+<li>Malay <span>intermediate</span></li>
+</ul>
+<p style="margin-top:16px">B.Eng. Telecommunication Engineering, Prince of Songkla University.</p>
+</section>
+
+<section class="contact" id="contact">
+<h2>Contact</h2>
+<a class="mail" href="mailto:Samaae.Abdulhakim@gmail.com">Samaae.Abdulhakim@gmail.com</a>
+<div class="avail">Remote, freelance, part-time and project-based work.</div>
+</section>
+</main>
+<script>
+(function(){
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.documentElement.classList.add('js');
+var els=document.querySelectorAll('.term [data-t]'),i=0;
+(function n(){if(i>=els.length)return;els[i++].classList.add('on');setTimeout(n,420)})();
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('hit');io.unobserve(e.target)}})},{threshold:.5});document.querySelectorAll('.role').forEach(function(r){io.observe(r)})}
+})();
+
+(function(){
+var inp=document.getElementById('cmd'),out=document.getElementById('out');
+var C={help:'commands: whoami, skills, experience, contact, sudo hire keem, clear',
+whoami:'abdulhakeem sama-ae: IT engineer, Bangkok. Networks, data centers, careful reviewing.',
+skills:'LAN/WAN/WLAN, VLAN, GPON, fiber; Cisco, Aruba, Ruckus, Huawei, Fortinet; Wireshark; Google Workspace + Apps Script',
+experience:'BIT Solution -> APEX Leap Thailand -> EZSVS Thailand. Details are below.',
+contact:'Samaae.Abdulhakim@gmail.com',
+'sudo hire keem':'[sudo] password for recruiter: ********\npermission granted. good call. email me to make it official.'};
+function add(t,c){var d=document.createElement('div');if(c)d.className=c;d.textContent=t;out.appendChild(d)}
+inp.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ');inp.value='';if(!v)return;
+if(v==='clear'){out.textContent='';return}
+add('$ '+v,'q');add(Object.prototype.hasOwnProperty.call(C,v)?C[v]:'command not found: '+v+'. try help');
+inp.scrollIntoView({block:'nearest'})});
+})();
+(function(){
+var TH={
+"IT engineer for networks and data centers, based in Bangkok. Open to remote work in AI evaluation and Thai language evaluation.":"วิศวกรไอทีด้านเครือข่ายและดาต้าเซ็นเตอร์ อยู่กรุงเทพฯ สนใจงานรีโมตด้านการประเมิน AI และการประเมินภาษาไทย",
+"destination reached.":"ถึงปลายทางแล้ว",
+"200 km of data centers in range.":"ดาต้าเซ็นเตอร์ในรัศมี 200 กม. อยู่ในความดูแล",
+"About":"เกี่ยวกับ",
+"I trained as a telecommunication engineer at Prince of Songkla University. Since then I’ve delivered building networks as an on-site project manager, and now keep data centers running across a 200 km area.":"ผมเรียนจบวิศวกรรมโทรคมนาคมจากมหาวิทยาลัยสงขลานครินทร์ หลังจากนั้นส่งมอบระบบเครือข่ายอาคารในฐานะผู้จัดการโครงการหน้างาน และตอนนี้ดูแลดาต้าเซ็นเตอร์ในพื้นที่รัศมี 200 กม.",
+"I check things carefully and write them down clearly. I use AI tools daily for drafting, summarizing and planning, and I verify every output before it goes anywhere. I’m looking for remote and freelance work in AI evaluation, search quality, data annotation and Thai language evaluation.":"ผมตรวจงานอย่างละเอียดและเขียนบันทึกให้ชัดเจน ใช้เครื่องมือ AI ทุกวันสำหรับร่างเอกสาร สรุป และวางแผน และตรวจทุกผลลัพธ์ก่อนนำไปใช้ ตอนนี้กำลังหางานรีโมตและฟรีแลนซ์ด้านการประเมิน AI, search quality, data annotation และการประเมินภาษาไทย",
+"Evaluation sample":"ตัวอย่างงานประเมิน",
+"Illustrative exercise, not from a client project.":"แบบฝึกตัวอย่าง ไม่ได้มาจากโปรเจกต์ของลูกค้า",
+"Prompt":"โจทย์",
+"Model response":"คำตอบของโมเดล",
+"Show my review":"ดูการประเมินของผม",
+"Accuracy: fail.":"ความถูกต้อง: ไม่ผ่าน",
+"Bangkok sits only about 1.5 m above sea level, not 50 m.":"กรุงเทพฯ สูงจากระดับน้ำทะเลเพียงประมาณ 1.5 เมตร ไม่ใช่ 50 เมตร",
+"Completeness: partial.":"ความครบถ้วน: บางส่วน",
+"Misses land subsidence, tides, and river runoff.":"ขาดเรื่องแผ่นดินทรุด น้ำทะเลหนุน และน้ำจากแม่น้ำ",
+"Fluency: good.":"ความลื่นไหล: ดี",
+"Natural, clear Thai.":"ภาษาไทยเป็นธรรมชาติและชัดเจน",
+"Verdict: revise.":"สรุป: ต้องแก้",
+"Fix the elevation claim and add the missing causes.":"แก้ข้อมูลความสูงและเพิ่มสาเหตุที่ขาด",
+"Experience":"ประสบการณ์",
+"Operate and maintain data centers within a 200 km coverage radius.":"ดูแลและบำรุงรักษาดาต้าเซ็นเตอร์ในรัศมี 200 กม.",
+"Run operational checks, technical verification and troubleshooting.":"ตรวจสอบการทำงาน ตรวจทานทางเทคนิค และแก้ไขปัญหา",
+"Keep accurate technical records and coordinate with teams on issue resolution.":"บันทึกข้อมูลเทคนิคให้ถูกต้องและประสานงานกับทีมเพื่อแก้ปัญหา",
+"First on-site IT staff member. Built IT operations from scratch for 25 Mac users across 5 sites, working with the overseas IT lead.":"IT คนแรกที่ประจำหน้างาน วางระบบงานไอทีตั้งแต่ศูนย์ให้ผู้ใช้ Mac 25 คนใน 5 ไซต์ ทำงานร่วมกับ IT lead ต่างประเทศ",
+"Wrote a 12-point security SOP and a device reformat schedule with a standard image.":"เขียน SOP ความปลอดภัย 12 ข้อ และตารางรีฟอร์แมตเครื่องพร้อมอิมเมจมาตรฐาน",
+"Set up an SMB file server with per-user and department permissions, and an IT ticketing system with SLA tiers.":"ตั้งค่าไฟล์เซิร์ฟเวอร์ SMB พร้อมสิทธิ์รายบุคคลและรายแผนก และระบบ ticket ไอทีที่มีระดับ SLA",
+"Launched a bilingual (EN/ZH) Telegram IT support bot.":"เปิดตัวบอท Telegram สำหรับซัพพอร์ตไอที สองภาษา (EN/ZH)",
+"Traced a shared-building network fault with the building’s network engineer and delivered a working fix.":"ไล่หาสาเหตุปัญหาเครือข่ายของอาคารร่วมกับวิศวกรเครือข่ายของอาคาร และแก้ไขจนใช้งานได้",
+"Single point of contact for building owners, main contractors and MEP teams, from planning to handover.":"เป็นจุดติดต่อหลักของเจ้าของอาคาร ผู้รับเหมาหลัก และทีม MEP ตั้งแต่วางแผนจนส่งมอบ",
+"Reviewed drawings and specs, produced shop drawings and submittals, and ran wiring inspections and sign-off.":"ตรวจแบบและสเปก จัดทำ shop drawing และเอกสาร submittal ตรวจการเดินสายและเซ็นรับงาน",
+"Managed BOQ-based billing and budget tracking, and supervised subcontractors on LAN, fiber, GPON, CCTV, access control and telephony.":"บริหารการเบิกงวดตาม BOQ และติดตามงบประมาณ คุมผู้รับเหมาช่วงงาน LAN, fiber, GPON, CCTV, access control และโทรศัพท์",
+"Monitored IT infrastructure alerts and system performance 24/7 to keep services reliable.":"เฝ้าติดตามแจ้งเตือนโครงสร้างพื้นฐานไอทีและประสิทธิภาพระบบ 24/7 เพื่อให้บริการเสถียร",
+"Identified, troubleshot and resolved incidents with the Singapore and Japan teams.":"ระบุ วิเคราะห์ และแก้ไขเหตุขัดข้องร่วมกับทีมสิงคโปร์และญี่ปุ่น",
+"Wrote SOPs and process documentation, and coordinated cross-regional incident follow-ups.":"เขียน SOP และเอกสารขั้นตอนงาน และประสานติดตามเหตุขัดข้องข้ามภูมิภาค",
+"Supported network solution design for industrial clients and joined site surveys and infrastructure assessments.":"ช่วยออกแบบโซลูชันเครือข่ายให้ลูกค้าอุตสาหกรรม และร่วมสำรวจหน้างานและประเมินโครงสร้างพื้นฐาน",
+"Assisted with hardware configuration and implementation, and prepared user documentation.":"ช่วยตั้งค่าและติดตั้งอุปกรณ์ และจัดทำเอกสารสำหรับผู้ใช้",
+"Selected projects":"โปรเจกต์เด่น",
+"GPON network, three buildings, 30M+ THB":"เครือข่าย GPON 3 อาคาร มูลค่า 30 ล้านบาทขึ้นไป",
+"ICT and security, 240+ guest rooms, 18M+ THB":"ระบบ ICT และความปลอดภัย 240+ ห้องพัก มูลค่า 18 ล้านบาทขึ้นไป",
+"Lead engineer on the building service network.":"วิศวกรหลักของเครือข่ายบริการอาคาร",
+"Lead engineer on communications and security systems.":"วิศวกรหลักของระบบสื่อสารและความปลอดภัย",
+"Academic projects":"โปรเจกต์ระหว่างเรียน",
+"Antenna radiation and wireless module performance":"รังสีจากเสาอากาศกับประสิทธิภาพโมดูลสื่อสารไร้สาย",
+"Simulated and tested wireless communication modules, evaluated signal strength and radiation patterns, and wrote optimization recommendations.":"จำลองและทดสอบโมดูลสื่อสารไร้สาย ประเมินความแรงสัญญาณและรูปแบบการแผ่รังสี และเสนอแนวทางปรับปรุง",
+"Radiation and SAR from WBANs on the human body":"รังสีและค่า SAR จาก WBAN ต่อร่างกายมนุษย์",
+"Studied SAR in Wireless Body Area Networks and simulated exposure with an ESP32 WROOM32, comparing device placement effects.":"ศึกษาค่า SAR ในเครือข่ายไร้สายบนร่างกาย จำลองการรับรังสีด้วย ESP32 WROOM32 และเปรียบเทียบผลของตำแหน่งอุปกรณ์",
+"Skills":"ทักษะ",
+"Networking":"เครือข่าย","Vendors":"ยี่ห้ออุปกรณ์","Systems":"ระบบ","Tools":"เครื่องมือ","Practice":"แนวปฏิบัติ",
+"CCTV, access control, telephony":"CCTV, access control, ระบบโทรศัพท์",
+"Wireshark, Google Workspace and Apps Script, macOS, Windows and Linux (basic), Microsoft Office":"Wireshark, Google Workspace และ Apps Script, macOS, Windows และ Linux (พื้นฐาน), Microsoft Office",
+"Network documentation, SOP writing, troubleshooting, vendor and stakeholder coordination":"เอกสารเครือข่าย การเขียน SOP การแก้ปัญหา การประสานงานกับผู้ขายและผู้เกี่ยวข้อง",
+"Languages and education":"ภาษาและการศึกษา",
+"Thai":"ไทย","native":"ภาษาแม่","English":"อังกฤษ","working proficiency, TOEIC 740/990":"ใช้งานได้ TOEIC 740/990","Arabic":"อาหรับ","proficient":"คล่อง","Malay":"มลายู","intermediate":"ระดับกลาง",
+"B.Eng. Telecommunication Engineering, Prince of Songkla University.":"วศ.บ. วิศวกรรมโทรคมนาคม มหาวิทยาลัยสงขลานครินทร์",
+"Contact":"ติดต่อ",
+"Remote, freelance, part-time and project-based work.":"รับงานรีโมต ฟรีแลนซ์ พาร์ทไทม์ และงานรายโปรเจกต์"
+};
+var btn=document.getElementById('lang'),nodes=[],w=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT,null),n;
+while((n=w.nextNode())){var k=n.nodeValue.trim();if(Object.prototype.hasOwnProperty.call(TH,k))nodes.push([n,n.nodeValue,n.nodeValue.replace(k,function(){return TH[k]})])}
+var th=false;
+btn.addEventListener('click',function(){th=!th;nodes.forEach(function(p){p[0].nodeValue=th?p[2]:p[1]});document.documentElement.lang=th?'th':'en';btn.textContent=th?'EN':'ไทย'});
+})();
+</script>
+</body>
+</html>
